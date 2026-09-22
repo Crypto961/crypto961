@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crypto961 — Bitcoin & Crypto Literacy for the MENA Reader</title>
 <meta name="description" content="Crypto961 teaches Bitcoin and crypto from a Lebanon and MENA perspective — plain-language explainers on custody, remittances, and how to avoid scams, before anything about trading.">
-<meta name="theme-color" content="#16241F">
+<meta name="theme-color" content="#122019">
 <link rel="canonical" href="https://crypto961.com/">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Crypto961">
 <meta property="og:title" content="Crypto961 — Bitcoin & Crypto Literacy for the MENA Reader">
@@ -19,10 +18,9 @@
 
 <link rel="icon" type="image/png" href="images/favicon.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="Style.css">
+<link rel="stylesheet" href="style.css">
+<!-- Fonts are self-hosted in style.css (@font-face) — no Google Fonts CDN request,
+     which avoids transmitting visitor IPs to Google (GDPR). -->
 
 <script type="application/ld+json">
 {
@@ -35,9 +33,7 @@
       "url": "https://crypto961.com",
       "description": "Bitcoin and crypto financial-literacy publication for a MENA/Lebanon audience.",
       "founder": { "@id": "https://kamilsalamehphotography.com/#person" },
-      "sameAs": [
-        "https://github.com/Crypto961"
-      ]
+      "sameAs": ["https://github.com/Crypto961"]
     },
     {
       "@type": "WebSite",
@@ -52,97 +48,206 @@
 </head>
 <body>
 
-<header class="site-header">
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header" id="siteHeader">
   <div class="container header-row">
     <a href="index.html" class="brand">Crypto961</a>
     <nav class="nav-links" aria-label="Primary">
+      <a href="#markets">Live Markets</a>
+      <a href="#tools">Tools</a>
       <a href="#pillars">Start Here</a>
-      <a href="#thesis">Why This Exists</a>
       <a href="#letter">Newsletter</a>
     </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
+  <nav class="nav-drawer" id="navDrawer" aria-label="Mobile">
+    <a href="#markets">Live Markets</a>
+    <a href="#tools">Tools</a>
+    <a href="#pillars">Start Here</a>
+    <a href="#letter">Newsletter</a>
+  </nav>
 </header>
 
 <main>
 
-<!-- HERO -->
-<section class="hero container">
-  <div class="hero-text">
-    <p class="kicker">A publication about money, before it's a publication about crypto</p>
-    <h1>Understand Bitcoin the<br>way your bank never<br>explained money.</h1>
-    <p class="hero-lede">Crypto961 is a plain-language guide to Bitcoin and crypto, written from Beirut for anyone who has ever watched their savings lose meaning overnight. Literacy first. Everything else later.</p>
-    <div class="hero-actions">
-      <a href="#pillars" class="btn btn-primary">Start with the basics</a>
-      <a href="#letter" class="btn btn-ghost">Get the newsletter</a>
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow">A publication about money, before it's a publication about crypto</p>
+      <h1>Understand Bitcoin the way your bank never explained money.</h1>
+      <p class="hero-lede">Crypto961 is a plain-language guide to Bitcoin and crypto, written from Beirut for anyone who has watched their savings lose meaning overnight. Literacy first. Everything else later.</p>
+      <div class="hero-actions">
+        <a href="#pillars" class="btn btn-primary">Start with the basics</a>
+        <a href="#letter" class="btn btn-ghost">Get the newsletter</a>
+      </div>
+      <p class="hero-disclaimer">Educational content, not financial advice.</p>
     </div>
-  </div>
 
-  <div class="ledger-card" aria-label="Illustrative comparison">
-    <p class="ledger-title">A number worth sitting with</p>
-    <div class="ledger-row">
-      <div class="ledger-figure">
-        <span class="ledger-value">−98%</span>
-        <span class="ledger-label">Lebanese pound, cash savings<br>since 2019</span>
-      </div>
-      <div class="ledger-divider" aria-hidden="true"></div>
-      <div class="ledger-figure">
-        <span class="ledger-value ledger-value-accent">Fixed</span>
-        <span class="ledger-label">Bitcoin's total supply,<br>by design, forever</span>
-      </div>
-    </div>
-    <p class="ledger-footnote">This isn't investment advice — it's the exact question this site exists to help you reason through for yourself.</p>
+    <figure class="chart-card">
+      <figcaption class="chart-caption">Two supplies, two futures<span>Illustrative, not investment guidance</span></figcaption>
+      <svg viewBox="0 0 420 260" class="chart-svg" role="img" aria-label="Chart comparing Lebanese pound money supply expansion against Bitcoin's fixed, capped supply">
+        <line x1="40" y1="20" x2="40" y2="220" stroke="rgba(245,241,232,0.18)" stroke-width="1"/>
+        <line x1="40" y1="220" x2="400" y2="220" stroke="rgba(245,241,232,0.18)" stroke-width="1"/>
+        <path d="M40,205 C120,200 180,160 240,90 C290,35 340,15 400,10" fill="none" stroke="#B5462F" stroke-width="2.5"/>
+        <path d="M40,190 L400,190" fill="none" stroke="#C9A227" stroke-width="2.5" stroke-dasharray="1 0"/>
+        <circle cx="400" cy="10" r="4" fill="#B5462F"/>
+        <circle cx="400" cy="190" r="4" fill="#C9A227"/>
+        <text x="46" y="205" fill="rgba(245,241,232,0.55)" font-size="10" font-family="IBM Plex Mono">2019</text>
+        <text x="360" y="205" fill="rgba(245,241,232,0.55)" font-size="10" font-family="IBM Plex Mono">Today</text>
+        <text x="300" y="30" fill="#B5462F" font-size="11" font-family="IBM Plex Mono">LBP supply</text>
+        <text x="240" y="182" fill="#C9A227" font-size="11" font-family="IBM Plex Mono">BTC — capped at 21M</text>
+      </svg>
+      <div class="chart-footnote">One line grows without limit. The other cannot. That difference is the entire reason this publication exists.</div>
+    </figure>
   </div>
 </section>
 
-<!-- THESIS -->
-<section id="thesis" class="section container thesis">
-  <p class="kicker">Why this exists</p>
-  <h2>Most crypto content assumes you're already rich, already bored, or already gambling.</h2>
-  <p class="thesis-body">Crypto961 starts from a different place: what if you're just trying to understand what your money actually is, and whether there's a better way to hold it? No price predictions, no "signals," no urgency. Just the concepts, explained once, explained well.</p>
+<!-- LIVE MARKETS -->
+<section id="markets" class="section markets-section reveal">
+  <div class="container">
+    <div class="section-head">
+      <h2>Live, not that it should change your mind</h2>
+      <p>The price is here because people ask for it — not because it's the point. Data via CoinGecko, refreshed every 60 seconds.</p>
+    </div>
+
+    <div class="price-card" id="priceCard" aria-live="polite">
+      <div class="price-card-main">
+        <div class="price-coin">
+          <span class="coin-glyph" aria-hidden="true">₿</span>
+          <div>
+            <span class="coin-name">Bitcoin</span>
+            <span class="coin-ticker">BTC / USD</span>
+          </div>
+        </div>
+        <div class="price-value-wrap">
+          <span class="price-value" id="priceValue">—</span>
+          <span class="price-change" id="priceChange">loading…</span>
+        </div>
+      </div>
+      <svg id="sparkline" class="sparkline" viewBox="0 0 300 70" preserveAspectRatio="none" aria-hidden="true">
+        <polyline id="sparklinePath" points="" fill="none" stroke="#C9A227" stroke-width="2"/>
+      </svg>
+      <div class="price-meta">
+        <span id="priceUpdated">Fetching live price…</span>
+        <button id="priceRefresh" class="price-refresh" type="button" aria-label="Refresh price">↻ Refresh</button>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- CONTENT PILLARS -->
+<section id="thesis" class="section thesis-section reveal">
+  <div class="container thesis-grid">
+    <p class="eyebrow">Why this exists</p>
+    <h2>Most crypto content assumes you're already rich, already bored, or already gambling.</h2>
+    <p class="thesis-body">Crypto961 starts from a different place: what if you're just trying to understand what your money actually is, and whether there's a better way to hold it? No price predictions, no "signals," no urgency — the concepts, explained once, explained properly.</p>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools" class="section container">
+  <div class="section-head">
+    <h2>Tools worth using once</h2>
+    <p>Small, honest calculators — no email required, no "sign up to see your result."</p>
+  </div>
+
+  <div class="tools-grid">
+
+    <!-- SAVINGS ERODER -->
+    <div class="tool-card reveal">
+      <p class="tool-kicker">Tool 01</p>
+      <h3>The Savings Eroder</h3>
+      <p class="tool-desc">See what sustained currency devaluation actually does to a fixed sum over time. This is about purchasing power, not returns — no asset performance is projected here.</p>
+
+      <div class="tool-controls">
+        <label for="erodeAmount">Starting savings (USD-equivalent)</label>
+        <input type="range" id="erodeAmount" min="500" max="50000" step="500" value="10000">
+        <output for="erodeAmount" id="erodeAmountOut">$10,000</output>
+
+        <label for="erodeYears">Years of 40% annual devaluation</label>
+        <input type="range" id="erodeYears" min="1" max="10" step="1" value="4">
+        <output for="erodeYears" id="erodeYearsOut">4 years</output>
+      </div>
+
+      <div class="tool-result">
+        <div>
+          <span class="tool-result-label">Real purchasing power left</span>
+          <span class="tool-result-value" id="erodeResult">$—</span>
+        </div>
+        <div class="tool-result-bar">
+          <div class="tool-result-fill" id="erodeBar"></div>
+        </div>
+      </div>
+      <p class="tool-footnote">Illustrative math (compound annual devaluation), not a forecast for any specific currency.</p>
+    </div>
+
+    <!-- HALVING COUNTDOWN -->
+    <div class="tool-card reveal">
+      <p class="tool-kicker">Tool 02</p>
+      <h3>Next Bitcoin Halving</h3>
+      <p class="tool-desc">Roughly every four years, the rate of new Bitcoin issuance is cut in half, by protocol design. Here's an estimate of when that next happens.</p>
+
+      <div class="countdown-grid" id="countdown" aria-live="polite">
+        <div class="countdown-unit"><span class="countdown-num" id="cdDays">00</span><span class="countdown-label">Days</span></div>
+        <div class="countdown-unit"><span class="countdown-num" id="cdHours">00</span><span class="countdown-label">Hours</span></div>
+        <div class="countdown-unit"><span class="countdown-num" id="cdMins">00</span><span class="countdown-label">Min</span></div>
+        <div class="countdown-unit"><span class="countdown-num" id="cdSecs">00</span><span class="countdown-label">Sec</span></div>
+      </div>
+      <p class="tool-footnote">Estimated date — actual timing depends on real-world block production speed, not a calendar.</p>
+    </div>
+
+  </div>
+</section>
+
 <section id="pillars" class="section container">
   <div class="section-head">
     <h2>Start here</h2>
     <p>Four things worth understanding before anything else.</p>
   </div>
 
-  <div class="pillar-list">
-    <article class="pillar">
+  <div class="pillar-grid">
+    <article class="pillar reveal">
+      <span class="pillar-index">01</span>
       <h3>What Bitcoin actually is</h3>
-      <p>Not a stock, not a company, not a promise from a bank. A plain explanation of what you're holding and why it's different.</p>
-      <a href="#" class="pillar-link">Read the explainer</a>
+      <p>Not a stock, not a company, not a promise from a bank. What you're holding, in plain terms.</p>
+      <a href="#" class="pillar-link">Read the explainer <span aria-hidden="true">→</span></a>
     </article>
-    <article class="pillar">
+    <article class="pillar reveal">
+      <span class="pillar-index">02</span>
       <h3>Sending money home, without the fees</h3>
-      <p>How stablecoins are quietly changing remittances across the region — and where the real risks still are.</p>
-      <a href="#" class="pillar-link">Read the explainer</a>
+      <p>How stablecoins are quietly changing remittances across the region — and the real risks still involved.</p>
+      <a href="#" class="pillar-link">Read the explainer <span aria-hidden="true">→</span></a>
     </article>
-    <article class="pillar">
-      <h3>Custody: the part no one explains properly</h3>
-      <p>Wallets, keys, exchanges — what "not your keys, not your coins" actually means in practice, step by step.</p>
-      <a href="#" class="pillar-link">Read the explainer</a>
+    <article class="pillar reveal">
+      <span class="pillar-index">03</span>
+      <h3>Custody: the part no one explains</h3>
+      <p>Wallets, keys, exchanges — what "not your keys, not your coins" means, step by step.</p>
+      <a href="#" class="pillar-link">Read the explainer <span aria-hidden="true">→</span></a>
     </article>
-    <article class="pillar">
+    <article class="pillar reveal">
+      <span class="pillar-index">04</span>
       <h3>The scams built for people like us</h3>
-      <p>Recognizing the specific patterns used to target crypto newcomers in this region — before you lose anything.</p>
-      <a href="#" class="pillar-link">Read the explainer</a>
+      <p>Recognizing the specific patterns used to target crypto newcomers in this region.</p>
+      <a href="#" class="pillar-link">Read the explainer <span aria-hidden="true">→</span></a>
     </article>
   </div>
 </section>
 
-<!-- NEWSLETTER -->
-<section id="letter" class="section container newsletter">
-  <div class="newsletter-card">
-    <h2>One clear idea, every couple of weeks.</h2>
-    <p>No noise, no hype, no price calls. Just the next thing worth understanding.</p>
+<section id="letter" class="section newsletter-section reveal">
+  <div class="container newsletter-grid">
+    <div>
+      <p class="eyebrow eyebrow-light">Twice a month, at most</p>
+      <h2>One clear idea, not a firehose.</h2>
+      <p>No noise, no hype, no price calls — just the next concept worth understanding, written the way this whole site is.</p>
+    </div>
     <form class="newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <label for="newsletter-email" class="sr-only">Email address</label>
       <input type="email" id="newsletter-email" name="email" placeholder="you@email.com" required>
       <button type="submit" class="btn btn-primary">Subscribe</button>
+      <p class="newsletter-note">Replace <code>YOUR_FORM_ID</code> with your Formspree endpoint before launch.</p>
     </form>
-    <p class="newsletter-note">Replace <code>YOUR_FORM_ID</code> in index.html with your own Formspree endpoint before launch.</p>
   </div>
 </section>
 
@@ -152,6 +257,8 @@
   <div class="container footer-row">
     <span class="footer-brand">Crypto961</span>
     <a href="https://github.com/Crypto961" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="cookies.html">Cookies</a>
     <span class="footer-copy">© 2026 Crypto961. Educational content, not financial advice.</span>
   </div>
 </footer>
