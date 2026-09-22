@@ -1,4 +1,4 @@
-// Crypto961 — no external JS dependencies, just the browser + a public price API.
+// Crypto961 —  no external JS dependencies, just the browser + a public price API.
 
 document.addEventListener('DOMContentLoaded', () => {
 
